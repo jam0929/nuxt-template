@@ -1,0 +1,16 @@
+/*
+** Component box
+*/
+%loan-component-box {
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.05);
+  background-color: #FFF;
+  border: solid 1px #F0F0F0;
+  box-sizing: border-box;
+  padding: 30px;
+}
+%www-component-box {
+  box-sizing: border-box;
+  background: #FFF;
+  border: solid 1px #E7E7E7;
+  padding: 20px;
+}

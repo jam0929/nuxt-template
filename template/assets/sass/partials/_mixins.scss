@@ -1,0 +1,108 @@
+@mixin flex(
+  $direction: row,
+  $justifyContent: flex-start,
+  $alignItems: flex-start) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@mixin text(
+  $size: inherit,
+  $weight: normal,
+  $lineHeight: inherit,
+  $color: inherit,
+  $family: inherit) {
+  font-family: $family;
+  font-size: $size;
+  font-weight: $weight;
+  line-height: $lineHeight;
+  color: $color;
+}
+
+/* Button */
+@mixin btn(
+  $padding: '1rem 2rem',
+  $bg: #2677CC,
+  $textColor: #fff,
+  $radius: .3rem,
+  $box-shadow: false
+) {
+
+  width: 100%;
+  height: 5rem;
+  background-color: $bg;
+  border-radius: $radius;
+  padding: unquote($padding);
+  white-space: nowrap;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: $textColor;
+
+  @if $box-shadow == true {
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .2),
+    0 2px 1px -1px rgba(0, 0, 0, .12),
+    0 1px 1px 0 rgba(0, 0, 0, .14);
+  }
+
+  &:active, &:hover {
+    background: darken($bg, 8%);
+  }
+
+  &:focus {
+  }
+
+  &:visited {
+  }
+}
+
+/// @argument {string} $position
+///   A CSS position value.
+///
+/// @argument {list} $box-edge-values
+///   List of lengths; accepts CSS shorthand.
+/* Position */
+
+@mixin pos(
+  $position: relative,
+  $box-edge-values: 0
+) {
+
+  $box-edge-values: _unpack-shorthand($box-edge-values);
+  position: $position;
+  top: nth($box-edge-values, 1);
+  right: nth($box-edge-values, 2);
+  bottom: nth($box-edge-values, 3);
+  left: nth($box-edge-values, 4);
+}
+
+/* ellipsis : 말줄임 */
+// 조건: 일정한 고정된 너비와 높이를 가져야 한다.
+@mixin ellipsis($isMultiLine: false) {
+  display: inline-block;
+  width: 200px;                         // overwrite property
+  height: 30px;                         // overwrite property
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  /* 여러 줄일 때 추가 스타일 */
+  @if $isMultiLine == true {
+    white-space: normal;
+    line-height: 1.2;                 // overwrite property
+    height: 3.6em;                    // overwrite property
+    text-align: left;
+    word-wrap: break-word;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;            // 몇번째 줄에서 말줄임 할 것인지. overwrite property
+    -webkit-box-orient: vertical;
+  }
+}
+
+@mixin z-index($key) {
+  z-index: z-index($key);
+}
