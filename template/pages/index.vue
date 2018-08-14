@@ -1,6 +1,5 @@
 <template>
   <section class="container">
-    <DatePicker />
     <div>
       <app-logo/>
       <h1 class="title">
@@ -24,13 +23,11 @@
 </template>
 
 <script>
-import DatePicker from '~/components/DatePicker.vue';
 import AppLogo from '~/components/AppLogo.vue'
 
 export default {
   components: {
     AppLogo,
-    DatePicker,
   },
 }
 </script>
