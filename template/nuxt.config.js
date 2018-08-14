@@ -50,14 +50,12 @@ module.exports = {
   */
   css: [
     { src: '~/assets/sass/main.scss', lang: 'scss' },
-    { src: 'vue-material/dist/vue-material.min.css', lang: 'css' },
   ],
   /*
   ** Plugins
   */
-  plugins: [
-    { src: '~/plugins/vue-material', ssr: true },
-  ],
+  // plugins: [
+  // ],
   /*
   ** Headers of the page
   */
